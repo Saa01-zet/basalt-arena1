@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basalt Arena — профиль</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'arena-dark': '#030a0d',
+            'arena-card': '#101f22',
+            'arena-border': '#224249',
+            'arena-cyan': '#0DCCF2',
+            'arena-green': '#00FF9D',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-arena-dark text-gray-200">
+
+<header class="bg-arena-card/90 backdrop-blur-md border-b border-arena-border sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../images/logo.svg" alt="Basalt Logo" class="w-10 h-10">
+      <div class="text-2xl font-extrabold bg-gradient-to-r from-arena-cyan to-arena-green bg-clip-text text-transparent">BASALT ARENA</div>
+    </div>
+    <nav class="flex gap-8">
+      <a href="index.html" class="text-gray-400 hover:text-arena-cyan transition">Спринт</a>
+      <a href="hall.html" class="text-gray-400 hover:text-arena-cyan transition">Зал славы</a>
+      <a href="profile.html" class="text-arena-cyan border-b-2 border-arena-cyan pb-1">Профиль</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full overflow-hidden bg-arena-cyan/10 border border-arena-cyan/30">
+        <img src="../images/avatar.png" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm text-gray-300" id="usernameDisplay">@dev_architect</span>
+        <button id="logoutBtn3" class="text-xs text-gray-500 hover:text-arena-cyan text-left">выйти</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-6 py-10">
+  <div class="flex flex-col lg:flex-row gap-8">
+    <aside class="lg:w-72 space-y-6">
+      <nav class="space-y-2">
+        <a href="#" class="flex items-center gap-3 px-4 py-3 bg-arena-cyan/10 border border-arena-cyan/20 rounded-lg text-arena-cyan font-medium">👤 Обзор</a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 opacity-40 text-gray-500 hover:opacity-70 transition">🏅 Бейджи и достижения</a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 opacity-40 text-gray-500 hover:opacity-70 transition">📊 Статистика</a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 opacity-40 text-gray-500 hover:opacity-70 transition">📜 История спринтов</a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 opacity-40 text-gray-500 hover:opacity-70 transition">⚙️ Настройки</a>
+      </nav>
+      <div class="bg-arena-card/20 border border-arena-border rounded-xl p-5">
+        <div class="flex justify-between text-xs text-gray-400 mb-3"><span>Контакты</span><span class="cursor-pointer hover:text-arena-cyan">✎</span></div>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center"><span>📡 Telegram</span><span class="text-arena-cyan text-sm">@dev_arch</span></div>
+          <div class="flex justify-between items-center"><span>✉️ Email</span><span class="text-arena-cyan text-sm">ahmad@basalt-arena.io</span></div>
+          <div class="flex justify-between items-center"><span>🐙 GitHub</span><span class="text-arena-cyan text-sm">/dev_architect</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1">
+      <div class="bg-arena-card/20 border border-arena-border rounded-2xl p-6 mb-8">
+        <div class="flex gap-6 items-start flex-wrap">
+          <div class="relative">
+            <div class="w-32 h-32 rounded-2xl border-2 border-arena-cyan/50 overflow-hidden bg-arena-card">
+              <img src="../images/avatar.png" alt="Avatar" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+            </div>
+          </div>
+          <div class="flex-1">
+            <h1 class="text-3xl font-bold" id="profileName">@dev_architect</h1>
+            <p class="text-gray-400 mt-1" id="profileBio">Разработчик. Учусь, делаю проекты, участвую в спринтах Basalt Arena.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-arena-card border border-arena-border rounded text-xs">&lt;&gt; Python, Go, Rust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-400 uppercase">Баллы</div>
+          <div class="text-2xl font-bold text-white">90</div>
+          <div class="text-green-400 text-xs">↑ +12% за месяц</div>
+        </div>
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-400 uppercase">Глобальный ранг</div>
+          <div class="text-2xl font-bold text-white">#3</div>
+          <div class="text-green-400 text-xs">↑ +2 позиции</div>
+        </div>
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-400 uppercase">Спринтов пройдено</div>
+          <div class="text-2xl font-bold text-white">1</div>
+          <div class="text-arena-cyan text-xs">100% участия</div>
+        </div>
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center">
+          <div class="text-xs text-gray-400 uppercase">Заработано денег</div>
+          <div class="text-2xl font-bold text-white">20 000 ₽</div>
+          <div class="text-arena-green text-xs">↑ +20 000 ₽</div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 border-b border-arena-border mb-6">
+        <button id="tabAchievements" class="pb-3 font-semibold text-arena-cyan border-b-2 border-arena-cyan">Достижения</button>
+        <button id="tabSettings" class="pb-3 font-semibold text-gray-400">Настройки профиля</button>
+      </div>
+
+      <div id="achievementsPanel">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-2">
+            <img src="../images/gallery.svg" alt="Галерея" class="w-6 h-6">
+            <h2 class="text-xl font-semibold">Галерея достижений</h2>
+          </div>
+          <a href="#" class="text-sm text-gray-400 hover:text-arena-cyan transition">ВСЕ ДОСТИЖЕНИЯ →</a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-arena-card border border-arena-border rounded-xl p-4 text-center hover:border-arena-cyan transition">
+            <div class="w-20 h-20 mx-auto rounded-full bg-arena-cyan/10 flex items-center justify-center mb-3">
+              <img src="../images/gaz.svg" alt="Газующий" class="w-12 h-12">
+            </div>
+            <div class="font-semibold text-base">Газующий</div>
+            <div class="text-xs text-gray-500 mt-1">Не пропустил ни одного спринта</div>
+          </div>
+
+          <div class="bg-arena-card border border-arena-border rounded-xl p-4 text-center hover:border-arena-cyan transition">
+            <div class="w-20 h-20 mx-auto rounded-full bg-arena-cyan/10 flex items-center justify-center mb-3">
+              <img src="../images/architect.svg" alt="Архитектор" class="w-12 h-12">
+            </div>
+            <div class="font-semibold text-base">Архитектор</div>
+            <div class="text-xs text-gray-500 mt-1">Создатель Basalt Arena</div>
+          </div>
+
+          <div class="bg-arena-card border border-arena-border rounded-xl p-4 text-center hover:border-arena-cyan transition">
+            <div class="w-20 h-20 mx-auto rounded-full bg-arena-cyan/10 flex items-center justify-center mb-3">
+              <img src="../images/first.svg" alt="Первый" class="w-12 h-12">
+            </div>
+            <div class="font-semibold text-base">Первый</div>
+            <div class="text-xs text-gray-500 mt-1">Выложил решение первым</div>
+          </div>
+
+          <div class="bg-arena-card border border-red-500/30 rounded-xl p-4 text-center opacity-40">
+            <div class="w-20 h-20 mx-auto rounded-full bg-red-500/10 flex items-center justify-center mb-3">
+              <img src="../images/invisible.svg" alt="Невидимка" class="w-12 h-12">
+            </div>
+            <div class="font-semibold text-base text-red-300">Невидимка</div>
+            <div class="text-xs text-gray-500 mt-1">Ни разу не участвовал</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settingsPanel" class="hidden">
+        <div class="bg-arena-card/10 border border-arena-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">⚙️ Настройки профиля</h3>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div><label class="block text-xs font-bold uppercase text-gray-400 mb-1">Имя пользователя</label><input type="text" id="editName" class="w-full bg-arena-card border border-arena-border rounded-xl p-3 text-white" value="dev_architect"></div>
+              <div><label class="block text-xs font-bold uppercase text-gray-400 mb-1">Электронная почта</label><input type="email" id="editEmail" class="w-full bg-arena-card border border-arena-border rounded-xl p-3 text-white" value="ahmad@basalt-arena.io"></div>
+            </div>
+            <div><label class="block text-xs font-bold uppercase text-gray-400 mb-1">Telegram</label><input type="text" id="editTelegram" class="w-full bg-arena-card border border-arena-border rounded-xl p-3 text-white" value="@dev_arch"></div>
+            <div><label class="block text-xs font-bold uppercase text-gray-400 mb-1">О себе</label><textarea id="editBio" rows="3" class="w-full bg-arena-card border border-arena-border rounded-xl p-3 text-white">Разработчик. Учусь, делаю проекты, участвую в спринтах Basalt Arena.</textarea></div>
+            <div class="flex justify-end gap-3 pt-2">
+              <button type="button" id="cancelSettings" class="border border-gray-500 px-6 py-2 rounded-full hover:border-arena-cyan transition">Отмена</button>
+              <button type="button" id="saveSettings" class="bg-arena-cyan text-arena-dark px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">Сохранить</button>
+            </div>
+            <div id="settingsMsg" class="text-sm text-center mt-2"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-center py-8 text-gray-600 border-t border-arena-border mt-10">Basalt Arena — код, который объединяет.</footer>
+
+<script>
+  const user = JSON.parse(localStorage.getItem('basalt_user'));
+  if (user) {
+    document.getElementById('usernameDisplay').innerText = '@' + user.name;
+    document.getElementById('profileName').innerText = '@' + user.name;
+  }
+  document.getElementById('logoutBtn3').onclick = () => { localStorage.removeItem('basalt_user'); window.location.href = 'login.html'; };
+
+  const tabAch = document.getElementById('tabAchievements');
+  const tabSet = document.getElementById('tabSettings');
+  const panelAch = document.getElementById('achievementsPanel');
+  const panelSet = document.getElementById('settingsPanel');
+
+  if (tabAch && tabSet) {
+    tabAch.onclick = () => {
+      tabAch.classList.add('text-arena-cyan', 'border-b-2', 'border-arena-cyan');
+      tabAch.classList.remove('text-gray-400');
+      tabSet.classList.remove('text-arena-cyan', 'border-b-2', 'border-arena-cyan');
+      tabSet.classList.add('text-gray-400');
+      panelAch.classList.remove('hidden');
+      panelSet.classList.add('hidden');
+    };
+    tabSet.onclick = () => {
+      tabSet.classList.add('text-arena-cyan', 'border-b-2', 'border-arena-cyan');
+      tabSet.classList.remove('text-gray-400');
+      tabAch.classList.remove('text-arena-cyan', 'border-b-2', 'border-arena-cyan');
+      tabAch.classList.add('text-gray-400');
+      panelSet.classList.remove('hidden');
+      panelAch.classList.add('hidden');
+    };
+  }
+
+  document.getElementById('saveSettings').onclick = () => document.getElementById('settingsMsg').innerHTML = '✅ Профиль обновлён!';
+  document.getElementById('cancelSettings').onclick = () => {
+    document.getElementById('editName').value = 'dev_architect';
+    document.getElementById('editEmail').value = 'ahmad@basalt-arena.io';
+    document.getElementById('editTelegram').value = '@dev_arch';
+    document.getElementById('editBio').value = 'Разработчик. Учусь, делаю проекты, участвую в спринтах Basalt Arena.';
+    document.getElementById('settingsMsg').innerHTML = '🔁 Изменения отменены';
+    setTimeout(() => document.getElementById('settingsMsg').innerHTML = '', 2000);
+  };
+</script>
+</body>
+</html>

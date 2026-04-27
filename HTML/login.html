@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basalt Arena — вход</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'arena-dark': '#030a0d',
+            'arena-card': '#101f22',
+            'arena-border': '#224249',
+            'arena-cyan': '#0DCCF2',
+            'arena-green': '#00FF9D',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body class="bg-arena-dark text-gray-200">
+
+<div class="max-w-7xl mx-auto px-6 py-8">
+  <div class="flex justify-between items-center mb-12 flex-wrap gap-4">
+    <div class="text-3xl font-extrabold bg-gradient-to-r from-arena-cyan to-arena-green bg-clip-text text-transparent">BASALT ARENA</div>
+    <div class="text-sm text-gray-500">Спринт #07 в эфире // auth.access()</div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-12 items-center">
+    <div class="flex-1 max-w-lg">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-arena-cyan/5 border border-arena-cyan/30 mb-4">
+        <span class="w-2 h-2 bg-arena-cyan rounded-full"></span>
+        <span class="text-[10px] font-mono font-bold tracking-wide text-arena-cyan uppercase">Спринт #07 в эфире</span>
+      </div>
+      <h1 class="text-5xl font-bold leading-tight mb-4">Войди в<br>арену. Покажи код.</h1>
+      <p class="text-gray-400 text-base mb-6">Basalt Arena — площадка для разработчиков, где каждый спринт превращается в честное соревнование за баллы, ранг и реальные деньги.</p>
+      <div class="flex gap-6 mb-8">
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center flex-1"><div class="text-2xl font-bold text-white">142</div><div class="text-[10px] font-mono text-gray-500 uppercase">Бойцов</div></div>
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center flex-1"><div class="text-2xl font-bold text-arena-cyan">07</div><div class="text-[10px] font-mono text-gray-500 uppercase">Спринтов</div></div>
+        <div class="bg-arena-card/20 border border-arena-border rounded-xl p-4 text-center flex-1"><div class="text-2xl font-bold text-arena-green">280K</div><div class="text-[10px] font-mono text-gray-500 uppercase">Призовых ₽</div></div>
+      </div>
+      <div class="space-y-3">
+        <div class="flex gap-3"><span class="text-arena-cyan">⚡</span><div><span class="font-bold">Реальные задачи</span><br><span class="text-xs text-gray-500">Никаких leetcode-головоломок. Только то, что встретишь в проде.</span></div></div>
+        <div class="flex gap-3"><span class="text-arena-cyan">🌊</span><div><span class="font-bold">Открытое сообщество</span><br><span class="text-xs text-gray-500">Решения публикуются — учись у тех, кто впереди тебя.</span></div></div>
+        <div class="flex gap-3"><span class="text-arena-cyan">🚀</span><div><span class="font-bold">Решение в проде</span><br><span class="text-xs text-gray-500">Один победитель спринта — его код уезжает в прод, а он получает деньги.</span></div></div>
+      </div>
+    </div>
+
+    <div class="w-full max-w-md bg-arena-card/30 backdrop-blur-sm border border-arena-border rounded-2xl p-8">
+      <div class="flex justify-between items-center mb-6">
+        <div><div class="text-[10px] font-mono text-gray-500 uppercase tracking-wide">// auth.access()</div><h2 class="text-2xl font-bold">Авторизация</h2></div>
+        <div class="w-12 h-12 rounded-xl bg-arena-cyan/10 border border-arena-cyan/30 flex items-center justify-center">🔑</div>
+      </div>
+
+      <div class="flex bg-arena-card/50 border border-arena-border rounded-lg p-1 mb-6">
+        <button id="tabLoginBtn" class="flex-1 py-2 rounded-md font-semibold text-sm bg-arena-cyan text-arena-dark">Вход</button>
+        <button id="tabRegisterBtn" class="flex-1 py-2 rounded-md font-semibold text-sm text-gray-400">Регистрация</button>
+      </div>
+
+      <div id="loginForm">
+        <div class="mb-4"><label class="text-xs font-bold uppercase tracking-wide text-gray-400">Логин или email</label><div class="relative mt-1"><span class="absolute left-3 top-3 text-gray-500">👤</span><input type="text" id="loginUsername" class="w-full bg-arena-card border border-arena-border rounded-lg py-2.5 pl-10 pr-3 text-white" placeholder="dev_architect"></div></div>
+        <div class="mb-3"><div class="flex justify-between"><label class="text-xs font-bold uppercase tracking-wide text-gray-400">Пароль</label><a href="#" id="forgotLink" class="text-[10px] text-arena-cyan">Забыл?</a></div><div class="relative mt-1"><span class="absolute left-3 top-3 text-gray-500">🔒</span><input type="password" id="loginPassword" class="w-full bg-arena-card border border-arena-border rounded-lg py-2.5 pl-10 pr-10 text-white" placeholder="••••••••"></div></div>
+        <div class="flex items-center gap-2 mb-6"><input type="checkbox" id="rememberSession" class="accent-arena-cyan"><label class="text-xs text-gray-400">Запомнить сессию на 30 дней</label></div>
+        <button id="doLogin" class="w-full bg-arena-cyan text-arena-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2">🔓 Войти в арену</button>
+      </div>
+
+      <div id="registerForm" class="hidden">
+        <div class="mb-4"><label class="text-xs font-bold uppercase tracking-wide text-gray-400">Логин или email</label><input type="text" id="regUsername" class="w-full bg-arena-card border border-arena-border rounded-lg py-2.5 px-3 text-white mt-1" placeholder="dev_architect"></div>
+        <div class="mb-4"><label class="text-xs font-bold uppercase tracking-wide text-gray-400">Пароль</label><input type="password" id="regPassword" class="w-full bg-arena-card border border-arena-border rounded-lg py-2.5 px-3 text-white mt-1" placeholder="••••••••"></div>
+        <div class="mb-4"><label class="text-xs font-bold uppercase tracking-wide text-gray-400">Подтвердите пароль</label><input type="password" id="regConfirm" class="w-full bg-arena-card border border-arena-border rounded-lg py-2.5 px-3 text-white mt-1" placeholder="••••••••"></div>
+        <div class="flex items-center gap-2 mb-6"><input type="checkbox" id="agreeRules" class="accent-arena-cyan"><label class="text-xs text-gray-400">Я согласен с правилами арены</label></div>
+        <button id="doRegister" class="w-full bg-arena-cyan text-arena-dark font-bold py-3 rounded-lg">Создать аккаунт</button>
+      </div>
+
+      <div class="relative flex items-center justify-center my-6"><div class="flex-1 h-px bg-arena-border"></div><span class="px-3 text-[10px] font-mono text-gray-500 uppercase">или через</span><div class="flex-1 h-px bg-arena-border"></div></div>
+      <div class="flex gap-3"><button id="githubBtn" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-arena-border rounded-lg text-gray-300 hover:bg-arena-card">🐙 GitHub</button><button id="telegramBtn" class="flex-1 flex items-center justify-center gap-2 py-2.5 border border-arena-border rounded-lg text-gray-300 hover:bg-arena-card">📡 Telegram</button></div>
+      <div id="authMsg" class="mt-4 text-sm text-center hidden"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center py-8 text-gray-600 border-t border-arena-border mt-16">Basalt Arena — честный код, настоящий опыт.</footer>
+
+<script>
+  if (localStorage.getItem('basalt_user')) {
+    window.location.href = 'index.html';
+  }
+
+  const tabLogin = document.getElementById('tabLoginBtn');
+  const tabRegister = document.getElementById('tabRegisterBtn');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const authMsg = document.getElementById('authMsg');
+
+  tabLogin.onclick = () => {
+    tabLogin.classList.add('bg-arena-cyan', 'text-arena-dark');
+    tabRegister.classList.remove('bg-arena-cyan', 'text-arena-dark');
+    tabRegister.classList.add('text-gray-400');
+    loginForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+  };
+
+  tabRegister.onclick = () => {
+    tabRegister.classList.add('bg-arena-cyan', 'text-arena-dark');
+    tabLogin.classList.remove('bg-arena-cyan', 'text-arena-dark');
+    tabLogin.classList.add('text-gray-400');
+    registerForm.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+  };
+
+  function showMsg(msg, isError) {
+    authMsg.textContent = msg;
+    authMsg.className = `mt-4 text-sm text-center p-2 rounded-lg ${isError ? 'bg-red-500/20 text-red-400' : 'bg-arena-cyan/20 text-arena-cyan'}`;
+    authMsg.classList.remove('hidden');
+    setTimeout(() => authMsg.classList.add('hidden'), 3000);
+  }
+
+  document.getElementById('doLogin').onclick = () => {
+    const u = document.getElementById('loginUsername').value.trim();
+    const p = document.getElementById('loginPassword').value;
+    if (!u || !p) { showMsg('Заполните все поля!', true); return; }
+    if (p === '123456') {
+      localStorage.setItem('basalt_user', JSON.stringify({ name: u }));
+      showMsg(`Добро пожаловать, ${u}!`, false);
+      setTimeout(() => window.location.href = 'index.html', 1000);
+    } else { showMsg('Неверный пароль. Попробуйте "123456"', true); }
+  };
+
+  document.getElementById('doRegister').onclick = () => {
+    const u = document.getElementById('regUsername').value.trim();
+    const p = document.getElementById('regPassword').value;
+    const p2 = document.getElementById('regConfirm').value;
+    const agreed = document.getElementById('agreeRules').checked;
+    if (!u || !p || !p2) { showMsg('Заполните все поля!', true); return; }
+    if (p !== p2) { showMsg('Пароли не совпадают!', true); return; }
+    if (!agreed) { showMsg('Примите правила арены!', true); return; }
+    localStorage.setItem('basalt_user', JSON.stringify({ name: u }));
+    showMsg(`Регистрация успешна! Добро пожаловать, ${u}!`, false);
+    setTimeout(() => window.location.href = 'index.html', 1000);
+  };
+
+  document.getElementById('githubBtn').onclick = () => showMsg('GitHub вход в разработке', false);
+  document.getElementById('telegramBtn').onclick = () => showMsg('Telegram вход в разработке', false);
+  document.getElementById('forgotLink').onclick = (e) => { e.preventDefault(); showMsg('Инструкции отправлены на почту (демо)', false); };
+</script>
+</body>
+</html>

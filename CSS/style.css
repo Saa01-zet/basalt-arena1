@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #101F22;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #0DCCF2;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-card {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.winner-card {
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.winner-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.user-card:hover {
+  border-color: #0DCCF2 !important;
+  transform: translateY(-2px);
+  transition: all 0.2s;
+}
+
+.timer-digit {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  ring: 2px solid #0DCCF2;
+  ring-offset: 2px;
+}
+
+.rank-badge {
+  transition: all 0.2s ease;
+}
+.rank-badge:hover {
+  transform: scale(1.05);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0DCCF2 0%, #00FF9D 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+  .timer-digit {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+  }
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

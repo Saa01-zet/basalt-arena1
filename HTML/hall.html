@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basalt Arena — зал славы</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'arena-dark': '#030a0d',
+            'arena-card': '#101f22',
+            'arena-border': '#224249',
+            'arena-cyan': '#0DCCF2',
+            'arena-green': '#00FF9D',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-arena-dark text-gray-200">
+
+<header class="bg-arena-card/90 backdrop-blur-md border-b border-arena-border sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+    <div class="flex items-center gap-3">
+      <img src="../images/logo.svg" alt="Basalt Logo" class="w-10 h-10">
+      <div class="text-2xl font-extrabold bg-gradient-to-r from-arena-cyan to-arena-green bg-clip-text text-transparent">BASALT ARENA</div>
+    </div>
+    <nav class="flex gap-8">
+      <a href="index.html" class="text-gray-400 hover:text-arena-cyan transition">Спринт</a>
+      <a href="hall.html" class="text-arena-cyan border-b-2 border-arena-cyan pb-1">Зал славы</a>
+      <a href="profile.html" class="text-gray-400 hover:text-arena-cyan transition">Профиль</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full overflow-hidden bg-arena-cyan/10 border border-arena-cyan/30">
+        <img src="../images/avatar.png" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm text-gray-300" id="usernameDisplay">@testuser</span>
+        <button id="logoutBtn2" class="text-xs text-gray-500 hover:text-arena-cyan text-left">выйти</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-8">
+
+  <div class="flex items-center gap-2 text-xs text-arena-cyan mb-6 bg-arena-cyan/5 border border-arena-cyan/10 rounded-full w-fit px-3 py-1.5">
+    <span>АРХИВ</span><span>/</span><span>СЕЗОН_04</span><span>/</span><span class="font-bold">ЗАЛ_СЛАВЫ</span>
+  </div>
+
+  <div class="flex flex-wrap gap-4 items-start justify-between mb-6">
+    <div><h1 class="text-4xl font-bold">Зал славы</h1><p class="text-gray-400 mt-2 max-w-2xl">Чествуем архитекторов арены. Просматривайте решения прошлых спринтов, изучайте исходный код победителей и отдавайте дань уважения лучшим участникам.</p></div>
+    <div class="bg-arena-card border border-arena-border rounded-2xl p-4 text-center min-w-[200px]"><div class="text-xs text-gray-500 uppercase">До завершения спринта</div><div class="text-2xl font-mono font-bold text-arena-cyan" id="timer">02:45:12</div><div class="flex justify-center gap-3 text-xs text-gray-500 mt-1"><span>Часов</span><span>Минут</span><span>Секунд</span></div></div>
+  </div>
+
+  <div class="flex gap-8 border-b border-arena-border mb-6">
+    <a href="#" class="text-arena-cyan border-b-2 border-arena-cyan pb-3">#2 Basalt Arena (frontend)</a>
+    <a href="#" class="text-gray-500 pb-3">#1 Listea</a>
+    <a href="#" class="text-gray-500 pb-3">#0 (спринт которого не было)</a>
+  </div>
+
+  <div class="bg-arena-card rounded-2xl border border-arena-border p-6 mb-8 flex justify-between items-center flex-wrap gap-4">
+    <div><h2 class="text-2xl font-bold">#2 Basalt Arena (frontend)</h2><div class="flex gap-2 mt-3 flex-wrap"><span class="bg-arena-dark border border-arena-border rounded-md px-3 py-1 text-xs">HTML</span><span class="bg-arena-dark border border-arena-border rounded-md px-3 py-1 text-xs">Tailwind CSS</span><span class="text-gray-500 text-xs flex items-center gap-1">✅ Завершён 14 мая</span></div></div>
+    <button class="bg-arena-cyan text-arena-dark font-bold px-6 py-2 rounded-lg hover:opacity-90 transition">Открыть бриф →</button>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-8">
+
+    <div class="lg:col-span-2">
+      <div class="flex justify-between items-center mb-4 flex-wrap gap-3">
+        <h2 class="text-xl font-semibold">Лучшие решения</h2>
+        <div class="flex gap-2">
+          <button id="sortScore" class="px-3 py-1 rounded-full text-sm bg-arena-cyan/20 text-arena-cyan">ЭФФЕКТИВНОСТЬ</button>
+          <button id="sortDate" class="px-3 py-1 rounded-full text-sm bg-gray-800 text-gray-400">ДАТА</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="bg-arena-card rounded-xl border border-arena-border p-4 text-center">
+          <div class="text-2xl font-bold text-arena-cyan">1 429</div>
+          <div class="text-xs text-gray-500">Всего отправок</div>
+          <div class="text-green-400 text-xs mt-1">📈 +12% к прошлому</div>
+        </div>
+        <div class="bg-arena-card rounded-xl border border-arena-border p-4 text-center">
+          <div class="text-2xl font-bold text-arena-cyan">42,8%</div>
+          <div class="text-xs text-gray-500">Доля успешных</div>
+          <div class="text-xs text-gray-500 mt-1">612 проверенных решений</div>
+        </div>
+      </div>
+
+      <div id="solutionsList" class="space-y-3"></div>
+      <button id="loadMore" class="w-full mt-4 py-2 text-gray-400 border border-arena-border rounded-xl hover:bg-arena-card transition">Загрузить ещё 48 решений</button>
+    </div>
+
+    <div class="space-y-6">
+      <div class="bg-arena-card rounded-2xl border border-arena-border p-5">
+        <h3 class="font-semibold mb-3 text-sm text-gray-400 uppercase">Победители прошлых спринтов</h3>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center"><span class="text-arena-cyan font-bold">#1</span><span>Listea</span><span class="text-gray-500 text-sm">@nakir</span></div>
+          <div class="flex justify-between items-center"><span class="text-arena-cyan font-bold">#0</span><span>(спринт которого не было)</span><span class="text-gray-500 text-sm">@abu_js</span></div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-r from-arena-cyan/10 to-transparent rounded-2xl border border-arena-cyan/20 p-5 italic text-gray-300">
+        «Хороший код — сам по себе награда, но золотая рамка тоже не помешает.»
+        <div class="text-right text-sm text-arena-cyan mt-3">— Администрация Арены</div>
+      </div>
+      <div class="bg-arena-card rounded-2xl border border-arena-border p-5">
+        <h3 class="font-semibold mb-3 text-sm text-gray-400 uppercase">Полезные ссылки</h3>
+        <div class="space-y-2">
+          <a href="#" class="block text-arena-cyan text-sm hover:underline">📘 Платформенный SDK v2.1</a>
+          <a href="#" class="block text-arena-cyan text-sm hover:underline">📄 Спецификация Quantum</a>
+          <a href="#" class="block text-arena-cyan text-sm hover:underline">📁 Репозиторий тестов</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="successModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50">
+  <div class="bg-arena-card rounded-2xl p-6 max-w-md mx-4 border border-arena-green text-center">
+    <div class="text-5xl mb-3">✅</div>
+    <h3 class="text-xl font-semibold mb-2">Решение отправлено!</h3>
+    <button onclick="closeSuccessModal()" class="mt-4 bg-arena-green text-arena-dark px-6 py-2 rounded-full">Отлично</button>
+  </div>
+</div>
+
+<footer class="text-center py-8 text-gray-600 border-t border-arena-border mt-10">Basalt Arena — где рождаются легенды.</footer>
+
+<script>
+  // Данные пользователя
+  const user = JSON.parse(localStorage.getItem('basalt_user'));
+  if (user) {
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    if (usernameDisplay) usernameDisplay.innerText = '@' + (user.name || 'testuser');
+  }
+  document.getElementById('logoutBtn2').onclick = () => { localStorage.removeItem('basalt_user'); window.location.href = 'login.html'; };
+
+  // ДАННЫЕ УЧАСТНИКОВ
+  const solutions = [
+    { name: "Usman", date: "11 мая 2026", score: 100, rank: 1, plus: "+12% к прошлому спринту", avatar: "../images/Usman.png" },
+    { name: "Umahan", date: "10 мая 2026", score: 92, rank: 2, avatar: "../images/Umahan.png" },
+    { name: "Muaz", date: "10 мая 2026", score: 88, rank: 3, avatar: "../images/Muaz.png" },
+    { name: "Said", date: "9 мая 2026", score: 84, rank: 4, avatar: "../images/Said.png" },
+    { name: "Abdul", date: "8 мая 2026", score: 80, rank: 5, avatar: "../images/Abdul.png" },
+    { name: "Ahmad", date: "8 мая 2026", score: 76, rank: 6, avatar: "../images/Ahmad.png" },
+    { name: "Hasan", date: "7 мая 2026", score: 72, rank: 7, avatar: "../images/Hasan.png" },
+    { name: "Mikail", date: "6 мая 2026", score: 68, rank: 8, avatar: "../images/Mikail.png" },
+    { name: "Murad", date: "5 мая 2026", score: 64, rank: 9, avatar: "../images/Murad.png" },
+    { name: "Artur", date: "4 мая 2026", score: 60, rank: 10, avatar: "../images/Artur.png" }
+  ];
+
+  let currentSort = 'score';
+  let visible = 10;
+
+  function renderSolutions() {
+    let sorted = [...solutions];
+    if (currentSort === 'score') sorted.sort((a, b) => b.score - a.score);
+    else sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const container = document.getElementById('solutionsList');
+    if (!container) return;
+
+    container.innerHTML = sorted.slice(0, visible).map(s => `
+      <div class="bg-arena-card rounded-xl border border-arena-border p-4 ${s.rank === 1 ? 'winner-card' : ''}">
+        <div class="flex justify-between items-center flex-wrap gap-3">
+          <div class="flex gap-3 items-center">
+            <img src="${s.avatar}" class="w-12 h-12 rounded-full object-cover border ${s.rank === 1 ? 'border-2 border-yellow-500/50' : 'border border-arena-cyan/30'}" onerror="this.src='https://randomuser.me/api/portraits/men/1.jpg'">
+            <div>
+              <div class="font-semibold ${s.rank === 1 ? 'text-lg' : ''}">${s.name}</div>
+              <div class="text-xs text-gray-500">${s.date} • Оценка наставника: ${s.score}</div>
+              ${s.plus ? `<div class="text-xs text-green-400">${s.plus}</div>` : ''}
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button class="px-3 py-1 rounded-full text-xs bg-gray-800">КОД</button>
+            <button class="px-3 py-1 rounded-full text-xs bg-gray-800">ДЕМО</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('sortScore').onclick = () => { currentSort = 'score'; renderSolutions(); };
+  document.getElementById('sortDate').onclick = () => { currentSort = 'date'; renderSolutions(); };
+  document.getElementById('loadMore').onclick = () => { visible += 4; renderSolutions(); };
+
+  renderSolutions();
+
+  let time = 2*3600+45*60+12;
+  setInterval(() => {
+    if(time>0) {
+      time--;
+      const h = Math.floor(time/3600), m = Math.floor((time%3600)/60), s = time%60;
+      document.getElementById('timer').innerText = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+  }, 1000);
+
+  const submitBtn = document.getElementById('submitBtn');
+  if (submitBtn) submitBtn.onclick = () => document.getElementById('successModal').style.display = 'flex';
+  window.closeSuccessModal = () => document.getElementById('successModal').style.display = 'none';
+</script>
+</body>
+</html>
